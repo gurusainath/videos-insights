@@ -7,6 +7,7 @@ import "@config/axios-configurations";
 import "@styles/main.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+
 export default function App({ Component, pageProps }: AppProps): JSX.Element {
   return (
     <SSRProvider>
