@@ -1,0 +1,18 @@
+.editor-container{
+  border: 1px solid grey;
+  padding: 1em;
+  width: 500px;
+  height: 500px; 
+  display: flex;
+  flex-direction: column;
+  margin-left: 120px;
+}
+.editor-text{
+  padding:1em;
+}
+.editor-title{
+  background-color: #fff;
+    height: 60px;
+    padding: 0 20px;
+    border-right: 1px solid #e9ecef;
+}

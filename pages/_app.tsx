@@ -4,7 +4,7 @@ import type { AppProps } from "next/app";
 // axios config
 import "@config/axios-configurations";
 // styles
-import "@styles/main.scss";
+import "styles/main.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 
