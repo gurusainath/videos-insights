@@ -9,6 +9,12 @@
   },
   "dependencies": {
     "@types/js-cookie": "^2.2.6",
+    "@uppy/core": "^1.19.1",
+    "@uppy/dashboard": "^1.20.1",
+    "@uppy/drop-target": "^0.2.3",
+    "@uppy/react": "^1.11.10",
+    "@uppy/robodog": "^1.10.11",
+    "@uppy/xhr-upload": "^1.7.4",
     "@zeit/next-sass": "^1.0.1",
     "ace-builds": "^1.4.12",
     "axios": "^0.21.1",

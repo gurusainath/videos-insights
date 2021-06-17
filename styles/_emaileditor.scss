@@ -6,6 +6,8 @@
   display: flex;
   flex-direction: column;
   margin-left: 120px;
+  // display: flex;
+  // justify-content: space-between;
 }
 .editor-text{
   padding:1em;
@@ -15,4 +17,14 @@
     height: 60px;
     padding: 0 20px;
     border-right: 1px solid #e9ecef;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.modal-90w {
+  min-width:90%;
+}
+
+.modal-60w {
+  min-width:60%;
 }
