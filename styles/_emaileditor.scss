@@ -1,8 +1,7 @@
 .editor-container{
-  border: 1px solid grey;
   padding: 1em;
-  width: 500px;
-  height: 500px; 
+  width: 100%;
+  height:100%; 
   display: flex;
   flex-direction: column;
   margin-left: 120px;
@@ -16,10 +15,21 @@
   background-color: #fff;
     height: 60px;
     padding: 0 20px;
-    border-right: 1px solid #e9ecef;
+    border: 1px solid #e9ecef;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+.subject-title{
+  background-color: #fff;
+    height: 60px;
+    padding: 0 20px;
+    border: 1px solid #e9ecef;
+    display: flex;
+    align-items: center;
+span{
+  padding:0.5em;
+}
 }
 .modal-90w {
   min-width:90%;
@@ -27,4 +37,52 @@
 
 .modal-60w {
   min-width:60%;
+}
+.modal-20w {
+  min-width:20%;
+}
+.classroom-nav-tab {
+  .nav-tabs {
+    .nav-link {
+      padding: 8px 3px;
+      margin: 0px 25px;
+      width: fit-content;
+      text-align: center;
+      border: 0px;
+      outline: none;
+      color: #8f8f8f;
+      font-weight: 500;
+      font-size: 18px;
+      border-radius: 0px;
+      &:nth-child(1) {
+        margin: 0px;
+        margin-right: 20px;
+      }
+
+      svg {
+        color: #8f8f8f;
+      }
+      &.active {
+        border-bottom: 3px solid #136acd;
+        color: #136acd;
+        svg {
+          color: #136acd;
+        }
+      }
+    }
+  }
+  @media (max-width: 576px) {
+    .nav-tabs {
+      justify-content: space-between;
+      .nav-link {
+        padding: 0;
+        margin: 0;
+        font-size: 12px;
+        &:nth-child(1) {
+          margin: 0px;
+          margin-right: 0px;
+        }
+      }
+    }
+  }
 }

@@ -34,7 +34,7 @@ function EmailEditor() {
                   <Card.Text>
                     Visual, drag and drop editing with access to modify HTML when you need it.
     </Card.Text>
-                  <Link href="/emaileditor/htmlEditor">
+                  <Link href="designEditor">
                     <Button variant="primary">Select</Button>
                   </Link>
                 </Card.Body>

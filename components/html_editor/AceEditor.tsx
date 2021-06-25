@@ -59,13 +59,14 @@ export const CodeEditor = (props: any) => {
         name={props.name}
         fontSize={14}
         showPrintMargin={true}
-        showGutter={true}
         highlightActiveLine={true}
         onChange={props.onChange}
         // onLoad={this.onLoad}
         // onSelectionChange={this.onSelectionChange}
         // onCursorChange={this.onCursorChange}
         // onValidate={this.onValidate}
+        height="520px"
+        width="100%"
         value={props.value}
         setOptions={{
           useWorker: false,
