@@ -5,7 +5,7 @@ import Link from "next/link";
 import { HtmlEditorContext } from "@components/contexts/HtmlEditorContextProvider";
 
 
-function Settings(props: any) {
+function Settings() {
 
   const [state, dispatch]: any = React.useContext(HtmlEditorContext);
   const [payload, setPayload] = React.useState(state.htmlGlobalDetails);

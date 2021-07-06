@@ -1,0 +1,78 @@
+.content-item {
+  margin-left: 5em;
+      padding: 2px 12px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+}
+.content-search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #35372f;
+    width: 400px;
+  }
+.primary-heading{
+  color: $primary-color;
+  font-weight: 500;
+    font-size: 20px;
+}
+.secondary-heading{
+  color: $primary-color;
+  font-weight: 500;
+    font-size: 16px !important;
+}
+.icon{
+color: $icon-color;
+display: flex;
+align-items: flex-end;
+}
+.btn-color{
+  background-color:$primary !important;
+}
+.dropdown-menu {
+    box-shadow: rgba(15, 15, 15, 0.05) 0px 0px 0px 1px, rgba(15, 15, 15, 0.1) 0px 3px 6px,
+      rgba(15, 15, 15, 0.2) 0px 9px 24px;
+    border: 0px;
+    border-radius: 4px;
+    padding: 0px;
+    .dropdown-item {
+      padding: 5px 0px;
+      border-bottom: 0.6px solid #eeeeee;
+      overflow: hidden;
+      border-radius: 4px;
+      &:last-child {
+        border-bottom: 0;
+      }
+      &:active {
+        background-color: #ffffff;
+      }
+    }
+  }
+  .modal-heading{
+    color: $primary-color;
+    font-weight: 500;
+    font-size: 18px !important;
+  }
+  .modal-description{
+    color: $icon-color;
+    font-weight: 400;
+    font-size: 14px !important;
+  }
+  .card-heading{
+    color: $primary-color;
+    font-weight: 600;
+    font-size: 14px !important;
+  }
+  .card-description{
+    color: $icon-color;
+    font-weight: 400;
+    font-size: 10px !important;
+  }
+  .template-title{
+    display: flex;
+     justify-content: space-between;
+  }
+  .link-header{
+    color: $secondary-color !important;
+  }

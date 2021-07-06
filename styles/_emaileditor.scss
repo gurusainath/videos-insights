@@ -1,3 +1,10 @@
+.design-name{
+  color:$primary-color !important;
+    font-size: 18px !important;
+}
+.nav-back-icon{
+  color:$primary-color !important;
+}
 .editor-container{
   padding: 1em;
   width: 100%;
@@ -38,8 +45,8 @@ span{
 .modal-60w {
   min-width:60%;
 }
-.modal-20w {
-  min-width:20%;
+.modal-40w {
+  min-width:40%;
 }
 .classroom-nav-tab {
   .nav-tabs {

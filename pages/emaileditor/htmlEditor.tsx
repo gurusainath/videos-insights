@@ -5,7 +5,7 @@ import HtmlEmailEditor from '@components/html_editor';
 // context provider
 import { HtmlEditorContextProvider } from "@components/contexts/HtmlEditorContextProvider";
 
-function HtmlEditor(props: any) {
+function HtmlEditor() {
 
   return (
     <div>

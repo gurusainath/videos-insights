@@ -2,7 +2,7 @@ import React from "react";
 // react-bootstrap
 import { Nav, Navbar, Container } from 'react-bootstrap';
 
-function HomePageLayoutNav(props: any) {
+function HomePageLayoutNav() {
 
   return (
     <div>

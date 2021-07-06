@@ -18,7 +18,7 @@ const HtmlCodeComponent = () => {
     setTabActive(k);
   }
 
-  const renderEmailTemplate = (newValue) => {
+  const renderEmailTemplate = (newValue: string) => {
     sethtmlString(newValue);
     dispatch({
       type: "HTML_STRING",

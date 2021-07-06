@@ -10,7 +10,7 @@ import Tags from "@components/html_editor/settings/Tags";
 import { Pricetags } from "@styled-icons/evaicons-solid/Pricetags";
 import { HtmlEditorContext } from "@components/contexts/HtmlEditorContextProvider";
 
-function EmailEditorNav(props: any) {
+function EmailEditorNav() {
   const [show, setShow] = React.useState(false);
   const [state, dispatch]: any = React.useContext(HtmlEditorContext);
 

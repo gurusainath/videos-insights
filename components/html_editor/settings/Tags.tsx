@@ -3,7 +3,7 @@ import React from "react";
 import { Form, Button } from 'react-bootstrap';
 import Link from "next/link";
 
-function Tags(props: any) {
+function Tags() {
   return (
     <Form>
       <Form.Group controlId="btnText">
