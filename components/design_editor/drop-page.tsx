@@ -17,7 +17,7 @@ const DropPage = ({
   console.log("dorp page elements", pageElements);
 
   return (
-    <div>
+    <div style={{ width: "50%" }}>
       <div className="subject-title">
         <span className="editor-subject">Subject:</span>
         <span style={{ color: "#C4C4C4" }}>Enter subject</span>

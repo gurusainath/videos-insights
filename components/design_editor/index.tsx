@@ -2,16 +2,13 @@
 import React, { useState } from 'react';
 import cloneDeep from 'lodash/cloneDeep';
 import { DragDropContext, DropResult } from 'react-beautiful-dnd';
-import Sidebar from '@components/design_editor/sidebar';
+
 import DropPage from '@components/design_editor/drop-page';
 import uuid from 'uuid/v4';
-//import Build from "@components/design_editor/build";
-import Settings from "@components/design_editor/settings";
+import BuildComponent from "@components/design_editor/build";
 import { Tabs, Tab, } from 'react-bootstrap';
-import { Build } from "@styled-icons/material/Build";
-import { SettingsOutline } from "@styled-icons/evaicons-outline/SettingsOutline";
-import { Pricetags } from "@styled-icons/evaicons-solid/Pricetags";
 import DesignEditorSettings from "@components/design_editor/DesignEditorSettings";
+
 
 const DesignEmailEditor = () => {
 
@@ -28,18 +25,6 @@ const DesignEmailEditor = () => {
   });
   const [fieldsListKey, setFieldsListKey] = useState(1);
   const [currentItem, setCurrentItem] = React.useState<IControl | null>(null);
-  const [tabActive, setTabActive] = React.useState("build");
-
-  React.useEffect(() => {
-    if (currentItem) {
-      handleSetTabActive("settings");
-    }
-    else { handleSetTabActive("build") }
-  }, [currentItem]);
-
-  function handleSetTabActive(k: string | null) {
-    setTabActive(k);
-  }
 
   // const newFieldClicked = (isColumns: boolean) => {
   //   const control = {};
@@ -69,27 +54,7 @@ const DesignEmailEditor = () => {
   //   }
   // };
 
-  const tabRenderProperties = [
-    {
-      title: "Build",
-      icon: <Build size="20" />,
-      key: "build",
-      // component: <Sidebar newFieldClicked={newFieldClicked} />,
-      component: <Sidebar />,
-    },
-    {
-      title: "Settings",
-      icon: <SettingsOutline size="20" />,
-      key: "settings",
-      component: <Settings data={currentItem} />,
-    },
-    {
-      title: "Tags",
-      icon: <Pricetags size="20" />,
-      key: "tags",
-      component: <div>Tags</div>,
-    },
-  ];
+
 
   const newFieldDragged = (result: DropResult) => {
     const { destination, draggableId } = result;
@@ -327,29 +292,7 @@ const DesignEmailEditor = () => {
         onDragEnd={(result: DropResult) => doDragElementEnd(result)}
       >
         {/* <div style={{ maxWidth: "310px", borderRight: "8px solid lightgrey" }}> */}
-        <div style={{ width: "60%", borderRight: "8px solid lightgrey" }}>
-          <div className="classroom-nav-tab">
-            <Tabs id="room-tab-manager" activeKey={tabActive} onSelect={(k) => handleSetTabActive(k)}>
-              {tabRenderProperties &&
-                tabRenderProperties.length > 0 &&
-                tabRenderProperties.map((tabData, tabIndex) => (
-                  <Tab
-                    key={tabData.key}
-                    eventKey={tabData.key}
-                    className="border-0"
-                    title={
-                      <div className="d-flex align-items-center">
-                        {tabData.icon}&ensp;
-                      {tabData.title}
-                      </div>
-                    }
-                  >
-                    <div className="tab-item-container">{tabData.component}</div>
-                  </Tab>
-                ))}
-            </Tabs>
-          </div>
-        </div>
+        <BuildComponent currentItem={currentItem} />
         {/* <div style={{
           marginLeft: "20em",
           marginTop: "10em",

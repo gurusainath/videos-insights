@@ -9,7 +9,7 @@ interface IProps {
 }
 
 function Settings(props: IProps) {
-  console.log(props);
+  console.log("settings data", props);
   const modulesSettings: any = [
     {
       type: "BUTTON",
@@ -42,6 +42,10 @@ function Settings(props: IProps) {
     {
       type: "SPACER",
       component: <ModuleSettings.SpacerSettings />,
+    },
+    {
+      type: "UNSUBSCRIBE",
+      component: <ModuleSettings.UnsubscribeSettings />,
     },
   ];
 

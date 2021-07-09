@@ -51,17 +51,15 @@ const initialState: any = {
     text: "Text goes here.",
     font: "Arial",
     fontSize: 12,
-    textColor: "000000",
-    backgroundColor: "#333333",
+    textColor: "#333333",
+    backgroundColor: "",
   },
   unsubscribeProperties: {
-    text: "Click here!",
-    url: "Enter URL here",
-    backgroundColor: "#333333",
-    width: 10,
-    height: 10,
+    font: "Arial",
+    fontSize: 12,
+    backgroundColor: "",
+    textColor: "#333333",
     padding: 10,
-    btnAlignmnet: "center"
   },
 };
 

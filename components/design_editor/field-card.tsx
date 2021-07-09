@@ -94,6 +94,10 @@ function FieldCard(props: IProps) {
           type: "SPACER",
           component: <Modules.SpacerModule />,
         },
+        {
+          type: "UNSUBSCRIBE",
+          component: <Modules.UnsubscribeModule />,
+        },
       ];
       let module = modules.find((element) => element.type.toLowerCase() === props.ctrl.type.toLowerCase());
       //const FieldComponent = Fields[ctrl.type];

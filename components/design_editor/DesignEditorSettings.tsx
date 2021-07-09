@@ -20,7 +20,7 @@ function DesignEditorSettings() {
 
   return (
     <div style={{
-      width: "50%",
+      width: "24%",
       borderLeft: "8px solid lightgrey",
     }}>
       <Row className="design-email-properties">

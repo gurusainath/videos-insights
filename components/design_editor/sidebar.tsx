@@ -17,12 +17,12 @@ import { Announcement } from "@styled-icons/zondicons/Announcement";
 import { Unsubscribe } from "@styled-icons/material-outlined/Unsubscribe";
 
 
-interface IProps {
-  newFieldClicked: any,
-};
+// interface IProps {
+//   newFieldClicked: any,
+// };
 
 
-function Sidebar(props: IProps) {
+function Sidebar() {
   const elementsArray = ['regular', 'row'];
   // const buildComponents: Array<object> = [
   const buildComponents = [

@@ -1,20 +1,12 @@
 import React from "react";
 // react-bootstrap
 import { Container, Row, Col } from 'react-bootstrap';
+import Sidebar from '@components/design_editor/sidebar';
+import BuildComponent from "@components/design_editor/build";
 
 function ColumnsSettings(props: any) {
   return (
-    <div style={{
-      display: "flex",
-      justifyContent: "center"
-    }}>
-      <Container>
-        <Row>
-          <Col>1 of 2</Col>
-          <Col>2 of 2</Col>
-        </Row>
-      </Container>
-    </div>
+    <Row>column</Row>
   );
 }
 
