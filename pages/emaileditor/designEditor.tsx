@@ -1,8 +1,9 @@
 import React from "react";
 // react-bootstrap
 import { DesignEditorNav } from 'layouts';
-import DesignEmailEditor from '@components/DesignEmailEditor';
+import DesignEmailEditor from '@components/design_editor';
 import { DesignEditorContextProvider } from "@components/contexts/DesignEditorContextProvider";
+
 
 function HtmlEditor() {
 

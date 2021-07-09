@@ -43,14 +43,8 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "components/design_editor/removemodules/drop-page.js",
-    "components/design_editor/removemodules/field-card.tsx",
-    "components/design_editor/removemodules/regular.js",
-    "components/design_editor/removemodules/row-field.js",
-    "components/design_editor/removemodules/sidebar.tsx",
-    "components/design_editor/removemodules/row.js",
-    "components/removeDesignEditor.jsx",
-    "components/design_editor/removemodules"
+    "components/design_editor/field-card.tsx",
+    "components/design_editor/sidebar.tsx",
   ],
   "exclude": [
     "node_modules"

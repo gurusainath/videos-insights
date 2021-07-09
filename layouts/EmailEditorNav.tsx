@@ -23,32 +23,30 @@ function EmailEditorNav() {
   return (
     <div>
       <Navbar bg="light">
-        <Container>
-          <Nav style={{ justifyContent: "space-between", fontWeight: 500, width: "100%" }}>
-            <div style={{ display: "flex" }}>
-              <Nav.Link href="#home">
-                <ArrowBack size="20" />
-              </Nav.Link>
-              <Nav.Link onClick={() => setShow(true)} href="#settings">
-                <SettingsOutline size="20" />
+        <Nav style={{ justifyContent: "space-between", fontWeight: 500, width: "100%", padding: "0 1em 0 1em" }}>
+          <div style={{ display: "flex" }}>
+            <Nav.Link href="#home">
+              <ArrowBack size="20" className="nav-back-icon" />
+            </Nav.Link>
+            <Nav.Link onClick={() => setShow(true)} href="#settings">
+              <SettingsOutline size="20" />
               Settings
             </Nav.Link>
-            </div>
-            <Nav.Link href="#home">
-              {state.htmlGlobalDetails.designName}
+          </div>
+          <Nav.Link href="#home" className="design-name">
+            {state.htmlGlobalDetails.designName}
+          </Nav.Link>
+          <div style={{ display: "flex", alignItems: "baseline" }}>
+            <Nav.Link style={{ marginRight: "1em" }}>
+              <EyeFill size="18px" />
+              <span style={{ marginLeft: "5px" }}>Preview</span>
             </Nav.Link>
-            <div style={{ display: "flex", alignItems: "baseline" }}>
-              <Nav.Link style={{ marginRight: "1em" }}>
-                <EyeFill size="18px" />
-                <span style={{ marginLeft: "5px" }}>Preview</span>
-              </Nav.Link>
-              <Button className="btn-sm">
-                <Save size="18px" />
-                <span style={{ marginLeft: "5px" }}>Save</span>
-              </Button>
-            </div>
-          </Nav>
-        </Container>
+            <Button className="btn-sm">
+              <Save size="18px" />
+              <span style={{ marginLeft: "5px" }}>Save</span>
+            </Button>
+          </div>
+        </Nav>
       </Navbar>
       <Modal
         show={show}

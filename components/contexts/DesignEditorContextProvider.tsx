@@ -3,6 +3,13 @@ import React, { useReducer, createContext } from "react";
 export const DesignEditorContext = createContext(null);
 
 const initialState: any = {
+  emailProperties: {
+    designName: "Design Name",
+    // ui elements
+    subject: "Enter Subject",
+    preheader: "Preheader",
+    categories: "Category 1",
+  },
   btnProperties: {
     text: "Click here!",
     url: "Enter URL here",
@@ -60,6 +67,8 @@ const initialState: any = {
 
 const reducer = (state: any, action: any) => {
   switch (action.type) {
+    case "DESIGN_GLOBAL":
+      return { ...state, emailProperties: action.payload };
     case "BUTTON_PROPERTIES":
       return { ...state, btnProperties: action.payload };
     case "COLUMN_PROPERTIES":

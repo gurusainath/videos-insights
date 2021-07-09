@@ -1,9 +1,10 @@
 import React from 'react';
 import { Draggable } from 'react-beautiful-dnd';
-import * as Modules from "../modules";
+import * as Modules from "./modules";
 // react-bootstrap
-import { Nav, Card, Button } from 'react-bootstrap';
+import { Nav, Card, Tabs, Tab } from 'react-bootstrap';
 import { Delete } from "@styled-icons/fluentui-system-regular/Delete";
+import { EllipsisVertical } from "@styled-icons/ionicons-solid/EllipsisVertical";
 
 interface IProps {
   type: string;
@@ -39,10 +40,10 @@ function FieldCard(props: IProps) {
 
                 <Card ref={provided.innerRef} className="text-center"
                   {...provided.draggableProps} {...provided.dragHandleProps}
-                  style={{ width: '6rem' }}>
-                  <Card.Body>
+                  style={{ width: '5.7rem', borderRadius: "0rem !important" }}>
+                  <Card.Body className="link-header">
                     {props.element.icon}
-                    <Card.Text style={{ fontSize: "x-small" }}>
+                    <Card.Text className="build-secondary-title">
                       {props.element.title}
                     </Card.Text>
                   </Card.Body>
@@ -105,10 +106,40 @@ function FieldCard(props: IProps) {
           {(provided, snapshot) => (
             <div
               {...provided.draggableProps}
-              {...provided.dragHandleProps}
+
+              isDraggingOver={snapshot.isDraggingOver}
               ref={provided.innerRef}
+
             >
-              <Card>
+              <div className="module-draggable"
+              >
+                <div className="module-navtab">
+                  <Tabs defaultActiveKey="tab">
+                    <Tab eventKey="tab" title={module.type} style={{
+                      display: "flex",
+                      alignItems: "center",
+                    }}>
+                      <div className="icon mr-2" {...provided.dragHandleProps}>
+                        <EllipsisVertical size="18" />
+                        <EllipsisVertical size="18" style={{ marginLeft: "-12px" }} />
+                      </div>
+                      {module.component}
+                    </Tab>
+                  </Tabs>
+                </div>
+                <a className="module-delete">
+                  {props.colId ?
+                    <Delete onClick={() =>
+                      props.deleteColField(props.colId, props.index)}
+                      size="20"
+                    />
+                    : <Delete onClick={() => props.deleteField(props.ctrl)} size="20" />
+                  }
+                </a>
+              </div>
+              <div>
+              </div>
+              {/* <Card>
                 <Card.Header>
                   <Nav variant="tabs" defaultActiveKey="#first"
                     style={{
@@ -130,7 +161,7 @@ function FieldCard(props: IProps) {
                 <Card.Body>
                   {module.component}
                 </Card.Body>
-              </Card>
+              </Card> */}
             </div>
           )}
         </Draggable>

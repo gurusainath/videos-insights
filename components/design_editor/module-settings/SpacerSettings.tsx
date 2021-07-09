@@ -23,8 +23,9 @@ function SpacerSettings(props: any) {
 
   return (
     <Form>
+      <Form.Label className="settings-primary-title">SPACER SETTINGS</Form.Label>
       <Form.Group controlId="height">
-        <Form.Label>Height</Form.Label>
+        <Form.Label className="settings-secondary-title">Height</Form.Label>
         <Form.Control type="text" placeholder={payload.height} value={payload.height}
           onChange={(e: any) => {
             onHandleChange("height", e.target.value);

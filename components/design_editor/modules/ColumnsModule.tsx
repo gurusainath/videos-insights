@@ -4,7 +4,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { AddCircle } from "@styled-icons/ionicons-outline/AddCircle";
 import { DragDropContext, Droppable, Draggable, DraggableProvided } from 'react-beautiful-dnd';
 import ComponentModule from 'components/design_editor/component';
-import FieldCard from '@components/design_editor/removemodules/field-card';
+import FieldCard from '@components/design_editor/field-card';
 
 interface IProps {
   ctrl: {

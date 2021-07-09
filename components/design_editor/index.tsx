@@ -1,27 +1,34 @@
 /* eslint-disable max-lines-per-function */
 import React, { useState } from 'react';
 import cloneDeep from 'lodash/cloneDeep';
-import { DragDropContext } from 'react-beautiful-dnd';
-import Sidebar from '@components/design_editor/removemodules/sidebar';
-import DropPage from '@components/design_editor/removemodules/drop-page';
+import { DragDropContext, DropResult } from 'react-beautiful-dnd';
+import Sidebar from '@components/design_editor/sidebar';
+import DropPage from '@components/design_editor/drop-page';
 import uuid from 'uuid/v4';
 //import Build from "@components/design_editor/build";
 import Settings from "@components/design_editor/settings";
-import Tags from "@components/design_editor/tags";
 import { Tabs, Tab, } from 'react-bootstrap';
 import { Build } from "@styled-icons/material/Build";
 import { SettingsOutline } from "@styled-icons/evaicons-outline/SettingsOutline";
 import { Pricetags } from "@styled-icons/evaicons-solid/Pricetags";
+import DesignEditorSettings from "@components/design_editor/DesignEditorSettings";
 
-const removeDesignEditor = () => {
+const DesignEmailEditor = () => {
+
+  interface IControl {
+    id: string;
+    type: string;
+    title: string;
+    controls?: Array<object>;
+  };
+
   const [pageElements, setPageElements] = useState({
     elements: {},
     elementIds: [],
   });
   const [fieldsListKey, setFieldsListKey] = useState(1);
-  const [currentItem, setCurrentItem] = React.useState("");
+  const [currentItem, setCurrentItem] = React.useState<IControl | null>(null);
   const [tabActive, setTabActive] = React.useState("build");
-  const [data, setData] = React.useState({ [uuid()]: [] });
 
   React.useEffect(() => {
     if (currentItem) {
@@ -30,45 +37,45 @@ const removeDesignEditor = () => {
     else { handleSetTabActive("build") }
   }, [currentItem]);
 
-  function handleSetTabActive(k) {
+  function handleSetTabActive(k: string | null) {
     setTabActive(k);
   }
 
-  const newFieldClicked = (isColumns) => {
+  // const newFieldClicked = (isColumns: boolean) => {
+  //   const control = {};
+  //   control.id = uuid();
+  //   control.type = draggableId;
+  //   control.title = `${control.id} element`;
+  //   if (isColumns) {
+  //     control.controls = []
+  //   }
+  //   const newPageElements = cloneDeep(pageElements);
+  //   const pageElementIds = newPageElements.elementIds;
+  //   setCurrentItem(control);
 
-    const control = {};
-    control.id = uuid();
-    control.type = draggableId;
-    control.title = `${control.id} element`;
-    if (isColumns) {
-      control.controls = []
-    }
-    const newPageElements = cloneDeep(pageElements);
-    const pageElementIds = newPageElements.elementIds;
-    setCurrentItem(control);
+  //   // Set at bottom
+  //   newPageElements.elements[control.id] = control;
+  //   newPageElements.elementIds.splice(pageElementIds.length, 0, control.id);
 
-    // Set at bottom
-    newPageElements.elements[control.id] = control;
-    newPageElements.elementIds.splice(pageElementIds.length, 0, control.id);
-
-    setPageElements(oldPageElements => {
-      return {
-        ...oldPageElements,
-        ...newPageElements,
-      }
-    })
-    if (isColumns) {
-      const newFieldListKey = uuid();
-      setFieldsListKey(newFieldListKey);
-    }
-  };
+  //   setPageElements(oldPageElements => {
+  //     return {
+  //       ...oldPageElements,
+  //       ...newPageElements,
+  //     }
+  //   })
+  //   if (isColumns) {
+  //     const newFieldListKey = uuid();
+  //     setFieldsListKey(newFieldListKey);
+  //   }
+  // };
 
   const tabRenderProperties = [
     {
       title: "Build",
       icon: <Build size="20" />,
       key: "build",
-      component: <Sidebar newFieldClicked={newFieldClicked} />,
+      // component: <Sidebar newFieldClicked={newFieldClicked} />,
+      component: <Sidebar />,
     },
     {
       title: "Settings",
@@ -84,13 +91,18 @@ const removeDesignEditor = () => {
     },
   ];
 
-  const newFieldDragged = (result) => {
+  const newFieldDragged = (result: DropResult) => {
     const { destination, draggableId } = result;
     const isColumns = draggableId === 'Columns';
-    const control = {};
-    control.id = uuid();
-    control.type = draggableId;
+    const control: IControl = {
+      id: uuid(),
+      type: draggableId,
+      title: "",
+    };
     control.title = `${control.id} element`;
+    // control.id = uuid();
+    // control.type = draggableId;
+    // control.title = `${control.id} element`;
     if (isColumns) {
       control.controls = [];
     }
@@ -111,19 +123,18 @@ const removeDesignEditor = () => {
       setFieldsListKey(newFieldListKey);
     }
   };
-  ///
 
-
-
-  ///
-
-
-  const newColFieldDragged = (result) => {
+  const newColFieldDragged = (result: DropResult) => {
     console.log("newColFieldDragged result", result);
     const { draggableId, destination } = result;
-    const control = {};
-    control.id = uuid();
-    control.type = draggableId;
+    const control: IControl = {
+      id: uuid(),
+      type: draggableId,
+      title: "",
+    };
+    // const control = {};
+    // control.id = uuid();
+    // control.type = draggableId;
     control.title = `${control.id} element`;
     const colId = destination.droppableId.split(' ')[0];
     const newPageElements = cloneDeep(pageElements);
@@ -136,31 +147,9 @@ const removeDesignEditor = () => {
         ...newPageElements,
       }
     })
-
-    // const { draggableId, destination } = result;
-    // console.log(result, "result here");
-    // const newPageElements = cloneDeep(pageElements);
-    // let pageElementIds = newPageElements.elementIds;
-    // const control = newPageElements.elements[draggableId];
-    // const colId = destination.droppableId.split(' ')[0];
-    // console.log("control", control);
-    // console.log("colId", colId);
-    // // Set at desired index
-    // delete newPageElements.elements[control.id];
-    // pageElementIds = pageElementIds.filter((fieldId) => (
-    //   fieldId !== control.id
-    // ));
-    // newPageElements.elementIds = pageElementIds;
-
-    // setPageElements(oldPageElements => {
-    //   return {
-    //     ...oldPageElements,
-    //     ...newPageElements,
-    //   }
-    // })
   };
 
-  const fieldToCol = (result) => {
+  const fieldToCol = (result: DropResult) => {
     console.log("fielftocol result", result);
     const { draggableId, destination } = result;
     const newPageElements = cloneDeep(pageElements);
@@ -184,7 +173,7 @@ const removeDesignEditor = () => {
     })
   };
 
-  const reorderCol = (result) => {
+  const reorderCol = (result: DropResult) => {
     const { destination, source } = result;
     const newPageElements = cloneDeep(pageElements);
     const colId = destination.droppableId.split(' ')[0];
@@ -200,7 +189,7 @@ const removeDesignEditor = () => {
     })
   };
 
-  const moveToCol = (result) => {
+  const moveToCol = (result: DropResult) => {
     const { destination, source } = result;
     const newPageElements = cloneDeep(pageElements);
     const colIdSource = source.droppableId.split(' ')[0];
@@ -217,7 +206,7 @@ const removeDesignEditor = () => {
     })
   };
 
-  const colToField = (result) => {
+  const colToField = (result: DropResult) => {
     const { source, destination } = result;
     const newPageElements = cloneDeep(pageElements);
     const pageElementIds = newPageElements.elementIds;
@@ -236,7 +225,7 @@ const removeDesignEditor = () => {
     })
   };
 
-  const reorderPageFields = (result) => {
+  const reorderPageFields = (result: DropResult) => {
     const { destination, source, draggableId } = result;
     const newPageElements = cloneDeep(pageElements);
     const pageElementIds = newPageElements.elementIds;
@@ -253,7 +242,7 @@ const removeDesignEditor = () => {
     })
   }
 
-  const doDragElementEnd = (result) => {
+  const doDragElementEnd = (result: DropResult) => {
     const { destination, source, draggableId } = result;
     if (!destination) {
       console.log("here!!!!!");
@@ -302,12 +291,12 @@ const removeDesignEditor = () => {
     }
   }
 
-  const deleteField = (control) => {
+  const deleteField = (control: any) => {
     console.log("deletefieldcontrol", control);
     const newPageElements = cloneDeep(pageElements);
     let pageElementIds = newPageElements.elementIds;
     delete newPageElements.elements[control.id];
-    pageElementIds = pageElementIds.filter((fieldId) => (
+    pageElementIds = pageElementIds.filter((fieldId: string) => (
       fieldId !== control.id
     ));
     newPageElements.elementIds = pageElementIds;
@@ -319,7 +308,7 @@ const removeDesignEditor = () => {
     })
   }
 
-  const deleteColField = (colId, index) => {
+  const deleteColField = (colId: string, index: number) => {
     const newPageElements = cloneDeep(pageElements);
     console.log("colId", colId);
     console.log("newPageElements.elements[colId].", newPageElements.elements[colId]);
@@ -333,48 +322,52 @@ const removeDesignEditor = () => {
     })
   }
   return (
-    <div className="removeApp">
+    <div className="design-editor">
       <DragDropContext
-        onDragEnd={(result) => doDragElementEnd(result)}
+        onDragEnd={(result: DropResult) => doDragElementEnd(result)}
       >
-        <div style={{ maxWidth: "360px", borderRight: "1px solid lightgrey" }}>
-          <Tabs id="room-tab-manager" activeKey={tabActive} onSelect={(k) => handleSetTabActive(k)}>
-            {tabRenderProperties &&
-              tabRenderProperties.length > 0 &&
-              tabRenderProperties.map((tabData, tabIndex) => (
-                <Tab
-                  key={tabData.key}
-                  eventKey={tabData.key}
-                  className="border-0"
-                  title={
-                    <div className="d-flex align-items-center">
-                      {tabData.icon}&ensp;
+        {/* <div style={{ maxWidth: "310px", borderRight: "8px solid lightgrey" }}> */}
+        <div style={{ width: "60%", borderRight: "8px solid lightgrey" }}>
+          <div className="classroom-nav-tab">
+            <Tabs id="room-tab-manager" activeKey={tabActive} onSelect={(k) => handleSetTabActive(k)}>
+              {tabRenderProperties &&
+                tabRenderProperties.length > 0 &&
+                tabRenderProperties.map((tabData, tabIndex) => (
+                  <Tab
+                    key={tabData.key}
+                    eventKey={tabData.key}
+                    className="border-0"
+                    title={
+                      <div className="d-flex align-items-center">
+                        {tabData.icon}&ensp;
                       {tabData.title}
-                    </div>
-                  }
-                >
-                  <div className="tab-item-container">{tabData.component}</div>
-                </Tab>
-              ))}
-          </Tabs>
+                      </div>
+                    }
+                  >
+                    <div className="tab-item-container">{tabData.component}</div>
+                  </Tab>
+                ))}
+            </Tabs>
+          </div>
         </div>
-        <div style={{
+        {/* <div style={{
           marginLeft: "20em",
           marginTop: "10em",
           backgroundColor: "#80808014",
           height: "10em",
           width: "28em",
-        }}>
-          <DropPage
-            key={fieldsListKey}
-            pageElements={pageElements}
-            deleteField={deleteField}
-            deleteColField={deleteColField}
-          />
-        </div>
+        }}> */}
+        <DropPage
+          key={fieldsListKey}
+          pageElements={pageElements}
+          deleteField={deleteField}
+          deleteColField={deleteColField}
+        />
+        {/* </div> */}
       </DragDropContext>
+      <DesignEditorSettings />
     </div>
   );
 }
 
-export default removeDesignEditor;
+export default DesignEmailEditor;

@@ -1,0 +1,111 @@
+.design-editor {
+  min-height: 100vh;
+  display: flex;
+
+  > * {
+    background: white;
+    
+  }
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+}
+
+.sidebar {
+  padding: 1rem;
+  flex-shrink: 1;
+  margin-right: 2rem;
+}
+
+.drop-page {
+  padding: 1rem;
+  flex-grow: 1;
+  min-height: 30vh;
+  margin-left: 20em;
+  margin-top: 10em;
+  background-color: #80808014;
+  height: 10em;
+  width: 28em;
+  > div {
+    min-height: 30vh;
+  }
+  &:hover {
+        box-shadow: 0 0 11px 3px rgba(0, 0, 0, .1);
+        border: 1px dashed grey;
+    }
+}
+.drop-page-hidden {
+  min-height: 30vh;
+  margin-left: 20em;
+  margin-top: 10em;
+  height: 10em;
+  width: 28em;
+}
+
+.rowWrapper {
+  display: flex;
+}
+
+.module-draggable{
+display: flex;
+align-items: flex-end;
+.module-navtab{
+  width:100%;
+  .tab-content {
+    padding: 1rem 1rem;
+    &:hover{
+      border: 2px dashed $primary;
+    }
+    //border: 2px dashed $primary;
+  }
+  &:hover .nav-tabs{
+  visibility:visible;
+}
+  .nav-tabs {
+    display: flex;
+    justify-content: flex-end;
+    visibility:hidden;
+    .nav-link {
+      &.active{
+      background-color: $primary;
+      color:#fff;
+      font-size: 10px;
+      font-weight: 500;
+      }
+    }
+  }
+}
+&:hover .icon{
+  visibility: visible;
+}
+.icon{
+  color: $icon-color;
+display: flex;
+align-items: flex-end;
+visibility: hidden;
+}
+  &:hover .module-delete{
+  visibility: visible;
+  }
+  .module-delete{
+  cursor: pointer !important;
+  visibility: hidden;
+  color:$secondary-color;
+}
+}
+.design-email-properties{
+    height: 60px;
+    padding: 0 20px;
+    border-bottom: 1px solid #e9ecef;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    font-size: 12px;
+    color:$primary;
+}
+.build-secondary-title{
+color:$secondary-color;
+font-weight: 500;
+font-size: 10px;
+}

@@ -14,43 +14,44 @@ function Settings() {
     setPayload({ ...payload, [key]: value });
     dispatch({
       type: "HTML_GLOBAL",
-      payload: payload,
+      payload: { ...payload, [key]: value },
     });
   };
 
   return (
     <Form>
+      <Form.Label className="settings-primary-title">EMAIL DESIGN SETTINGS</Form.Label>
       <Form.Group controlId="design-name">
-        <Form.Label>Design Name</Form.Label>
+        <Form.Label className="settings-secondary-title">Design Name</Form.Label>
         <Form.Control type="text" value={payload.designName}
           onChange={(e: any) => {
             onHandleChange("designName", e.target.value);
           }} />
       </Form.Group>
       <Form.Group controlId="subject">
-        <Form.Label>Subject</Form.Label>
+        <Form.Label className="settings-secondary-title">Subject</Form.Label>
         <Form.Control type="text" value={payload.subject}
           onChange={(e: any) => {
             onHandleChange("subject", e.target.value);
           }} />
       </Form.Group>
       <Form.Group controlId="preheader">
-        <Form.Label>Preheader</Form.Label>
+        <Form.Label className="settings-secondary-title">Preheader</Form.Label>
         <Form.Control type="text" value={payload.preheader}
           onChange={(e: any) => {
             onHandleChange("preheader", e.target.value);
           }} />
       </Form.Group>
       <Form.Group controlId="categories">
-        <Form.Label>Categories</Form.Label>
+        <Form.Label className="settings-secondary-title">Categories</Form.Label>
         <Form.Control type="text" value={payload.categories}
           onChange={(e: any) => {
             onHandleChange("categories", e.target.value);
           }} />
       </Form.Group>
-      <Link href="#email">
+      <Form.Label className="settings-primary-title">
         TEST YOUR EMAIL
-  </Link>
+  </Form.Label>
     </Form>
   );
 }

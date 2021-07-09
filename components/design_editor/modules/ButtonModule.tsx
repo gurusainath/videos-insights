@@ -9,7 +9,8 @@ function ButtonModule() {
   return (
     <div style={{
       display: "flex",
-      justifyContent: state.btnProperties.btnAlignmnet
+      justifyContent: state.btnProperties.btnAlignmnet,
+      flexGrow: 1,
     }}>
       <Button
         style={{

@@ -21,8 +21,9 @@ function ButtonSettings(props: any) {
 
   return (
     <Form >
+      <Form.Label className="settings-primary-title">BUTTON SETTINGS</Form.Label>
       <Form.Group controlId="btnText">
-        <Form.Label>Button Text</Form.Label>
+        <Form.Label className="settings-secondary-title">Button Text</Form.Label>
         <Form.Control
           type="text"
           value={payload.text}
@@ -31,21 +32,21 @@ function ButtonSettings(props: any) {
           }} />
       </Form.Group>
       <Form.Group controlId="btnUrl">
-        <Form.Label>Button URL</Form.Label>
+        <Form.Label className="settings-secondary-title">Button URL</Form.Label>
         <Form.Control type="text" value={payload.url}
           onChange={(e: any) => {
             onHandleChange("url", e.target.value);
           }} />
       </Form.Group>
       <Form.Group controlId="formBasicEmail">
-        <Form.Label>Background Color</Form.Label>
+        <Form.Label className="settings-secondary-title">Background Color</Form.Label>
         <Form.Control type="text" value={payload.backgroundColor}
           onChange={(e: any) => {
             onHandleChange("backgroundColor", e.target.value);
           }} />
       </Form.Group>
       <Form.Group controlId="btnWidth">
-        <Form.Label>Width</Form.Label>
+        <Form.Label className="settings-secondary-title">Width</Form.Label>
         <Form.Control type="text" value={payload.width}
           onChange={(e: any) => {
             onHandleChange("width", e.target.value);
@@ -53,32 +54,26 @@ function ButtonSettings(props: any) {
         />
       </Form.Group>
       <Form.Group controlId="btnHeight">
-        <Form.Label>Height</Form.Label>
+        <Form.Label className="settings-secondary-title">Height</Form.Label>
         <Form.Control type="text" value={payload.height}
           onChange={(e: any) => {
             onHandleChange("height", e.target.value);
           }} />
       </Form.Group>
       <Form.Group controlId="btnPadding">
-        <Form.Label>Padding</Form.Label>
+        <Form.Label className="settings-secondary-title">Padding</Form.Label>
         <Form.Control type="text" value={payload.padding}
           onChange={(e: any) => {
             onHandleChange("padding", e.target.value);
           }} />
       </Form.Group>
       <Form.Group controlId="btnAlignmnet">
-        <Form.Label>Button Alignment</Form.Label>
+        <Form.Label className="settings-secondary-title">Button Alignment</Form.Label>
         <Form.Control type="text" value={payload.btnAlignmnet}
           onChange={(e: any) => {
             onHandleChange("btnAlignmnet", e.target.value);
           }} />
       </Form.Group>
-      <Button
-        variant="primary"
-        type="submit"
-      >
-        Apply Changes
-      </Button>
     </Form>
   );
 }

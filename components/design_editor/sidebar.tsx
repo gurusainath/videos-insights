@@ -2,6 +2,7 @@
 /* eslint-disable max-lines-per-function */
 import React from 'react';
 import PropTypes from 'prop-types';
+//react-bootstrap
 import { Droppable } from 'react-beautiful-dnd';
 import FieldCard from './field-card';
 import uuid from 'uuid/v4';
@@ -76,8 +77,8 @@ function Sidebar(props: IProps) {
     <div style={{ marginLeft: "1em" }}>
       {/* <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-evenly", width: "calc(25 % - 2em)" }}> */}
       <div>
-        <div style={{ fontWeight: 500, fontSize: "12px" }}>ELEMENTS</div>
-        <div style={{ fontWeight: 400, fontSize: "10px", color: "#767676" }}>Drag and drop elements you want to use.</div>
+        <div style={{ fontWeight: 500, fontSize: "12px", paddingTop: "1em" }}>ELEMENTS</div>
+        <div style={{ fontWeight: 400, fontSize: "10px", color: "#767676", paddingTop: "1em", paddingBottom: "1em" }}>Drag and drop elements you want to use.</div>
         <Droppable
           droppableId="elements-tab"
           isDropDisabled

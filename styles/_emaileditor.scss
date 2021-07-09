@@ -5,28 +5,7 @@
 .nav-back-icon{
   color:$primary-color !important;
 }
-.editor-container{
-  padding: 1em;
-  width: 100%;
-  height:100%; 
-  display: flex;
-  flex-direction: column;
-  margin-left: 120px;
-  // display: flex;
-  // justify-content: space-between;
-}
-.editor-text{
-  padding:1em;
-}
-.editor-title{
-  background-color: #fff;
-    height: 60px;
-    padding: 0 20px;
-    border: 1px solid #e9ecef;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+
 .subject-title{
   background-color: #fff;
     height: 60px;
@@ -36,6 +15,8 @@
     align-items: center;
 span{
   padding:0.5em;
+  font-size: 16px !important;
+  font-weight: 400;
 }
 }
 .modal-90w {
@@ -49,31 +30,34 @@ span{
   min-width:40%;
 }
 .classroom-nav-tab {
+  .nav{
+    justify-content: space-between;
+  }
   .nav-tabs {
     .nav-link {
-      padding: 8px 3px;
-      margin: 0px 25px;
+      // padding: 8px 3px;
+      // margin: 0px 25px;
       width: fit-content;
       text-align: center;
       border: 0px;
       outline: none;
       color: #8f8f8f;
       font-weight: 500;
-      font-size: 18px;
+      font-size: 14px;
       border-radius: 0px;
-      &:nth-child(1) {
-        margin: 0px;
-        margin-right: 20px;
-      }
+      // &:nth-child(1) {
+      //   margin: 0px;
+      //   margin-right: 20px;
+      // }
 
       svg {
         color: #8f8f8f;
       }
       &.active {
-        border-bottom: 3px solid #136acd;
-        color: #136acd;
+        border-bottom: 3px solid $primary;
+        color:$primary;
         svg {
-          color: #136acd;
+          color:$primary;
         }
       }
     }
@@ -93,3 +77,24 @@ span{
     }
   }
 }
+
+
+.editor-subject{
+  color:$primary-color !important;
+  font-size: 16px !important;
+  font-weight: 400;
+}
+.settings-primary-title{
+color:$primary-color;
+font-weight: 500;
+font-size: 12px;
+padding: 1em 0;
+}
+.settings-secondary-title{
+color:$secondary-color;
+font-weight: 400;
+font-size: 12px;
+padding-top: 1em;
+}
+
+

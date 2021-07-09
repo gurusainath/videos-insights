@@ -17,7 +17,7 @@ const HtmlRenderComponent = () => {
       </div>
       <div>
         <div className="subject-title">
-          <span>Subject:</span>
+          <span className="editor-subject">Subject:</span>
           <span style={{ color: "#C4C4C4" }}>{state.htmlGlobalDetails.subject}</span>
         </div>
         <div className="editor-container">

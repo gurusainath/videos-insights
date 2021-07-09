@@ -24,29 +24,30 @@ function TextSettings(props: any) {
   return (
     <div>
       <Form>
+        <Form.Label className="settings-primary-title">TEXT SETTINGS</Form.Label>
         <Form.Group controlId="iconColor">
-          <Form.Label>Font</Form.Label>
+          <Form.Label className="settings-secondary-title">Font</Form.Label>
           <Form.Control type="text" value={payload.font}
             onChange={(e: any) => {
               onHandleChange("font", e.target.value);
             }} />
         </Form.Group>
         <Form.Group controlId="iconColor">
-          <Form.Label>Font Size</Form.Label>
+          <Form.Label className="settings-secondary-title">Font Size</Form.Label>
           <Form.Control type="text" value={payload.fontSize}
             onChange={(e: any) => {
               onHandleChange("fontSize", e.target.value);
             }} />
         </Form.Group>
         <Form.Group controlId="iconColor">
-          <Form.Label>Text Color</Form.Label>
+          <Form.Label className="settings-secondary-title">Text Color</Form.Label>
           <Form.Control type="text" value={payload.textColor}
             onChange={(e: any) => {
               onHandleChange("textColor", e.target.value);
             }} />
         </Form.Group>
         <Form.Group controlId="iconColor">
-          <Form.Label>Background Color</Form.Label>
+          <Form.Label className="settings-secondary-title">Background Color</Form.Label>
           <Form.Control type="text" value={payload.backgroundColor}
             onChange={(e: any) => {
               onHandleChange("backgroundColor", e.target.value);

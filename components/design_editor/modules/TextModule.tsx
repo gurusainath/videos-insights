@@ -8,7 +8,7 @@ function TextModule(props: any) {
   const [state, dispatch]: any = React.useContext(DesignEditorContext);
 
   return (
-    <div>
+    <div style={{ flexGrow: 1 }}>
       <Form>
         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
           <Form.Control

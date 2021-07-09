@@ -8,7 +8,7 @@ function DividerModule(props: any) {
   const [state, dispatch]: any = React.useContext(DesignEditorContext);
 
   return (
-    <div>
+    <div style={{ flexGrow: 1 }}>
       <hr
         style={{
           color: state.dividerProperties.color,

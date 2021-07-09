@@ -21,15 +21,16 @@ function DividerSettings(props: any) {
 
   return (
     <Form>
+      <Form.Label className="settings-primary-title">DIVIDER SETTINGS</Form.Label>
       <Form.Group controlId="bgColor">
-        <Form.Label>Color</Form.Label>
+        <Form.Label className="settings-secondary-title">Color</Form.Label>
         <Form.Control type="text" placeholder={payload.color} value={payload.color}
           onChange={(e: any) => {
             onHandleChange("color", e.target.value);
           }} />
       </Form.Group>
       <Form.Group controlId="height">
-        <Form.Label>Height</Form.Label>
+        <Form.Label className="settings-secondary-title">Height</Form.Label>
         <Form.Control type="text" value={payload.height} placeholder={payload.height}
           onChange={(e: any) => {
             onHandleChange("height", e.target.value);

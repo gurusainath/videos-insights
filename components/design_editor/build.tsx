@@ -22,7 +22,7 @@ function Build(props: any) {
                     {...provided.draggableProps} {...provided.dragHandleProps}>
                     <Card ref={provided.innerRef} className="text-center"
                       {...provided.draggableProps} {...provided.dragHandleProps}
-                      style={{ width: '6rem', margin: "0.5em" }}>
+                      style={{ width: '5.6rem', margin: "0.5em" }}>
                       <Card.Body>
                         {component.icon}
                         <Card.Text style={{ fontSize: "x-small" }}>
