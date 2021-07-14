@@ -28,4 +28,5 @@ const HtmlRenderComponent = () => {
   )
 }
 
-export default withAuth(HtmlRenderComponent);
+// export default withAuth(HtmlRenderComponent);
+export default HtmlRenderComponent;

@@ -20,8 +20,7 @@ function SocialSettings(props: any) {
 
   };
   return (
-    <Form>
-      <Form.Label className="settings-primary-title">SOCIAL SETTINGS</Form.Label>
+    <Form style={{ padding: "1em" }}>
       <Form.Group controlId="iconColor">
         <Form.Label className="settings-secondary-title">Icon Color</Form.Label>
         <Form.Control type="text" value={payload.iconColor}

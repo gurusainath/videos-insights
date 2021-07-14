@@ -19,13 +19,8 @@ function DesignEditorSettings() {
   };
 
   return (
-    <div style={{
-      width: "24%",
-      borderLeft: "8px solid lightgrey",
-    }}>
-      <Row className="design-email-properties">
-        <span>EMAIL DESIGN SETTINGS</span>
-      </Row>
+    <div>
+      <Form.Label className="settings-primary-title">EMAIL DESIGN SETTINGS</Form.Label>
       <Form style={{ padding: "1em" }}>
         <Form.Group controlId="design-name">
           <Form.Label className="settings-secondary-title">Design Name</Form.Label>

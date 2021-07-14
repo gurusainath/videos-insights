@@ -8,6 +8,7 @@ import uuid from 'uuid/v4';
 import BuildComponent from "@components/design_editor/build";
 import { Tabs, Tab, } from 'react-bootstrap';
 import DesignEditorSettings from "@components/design_editor/DesignEditorSettings";
+import Settings from "@components/design_editor/settings";
 
 
 const DesignEmailEditor = () => {
@@ -54,11 +55,10 @@ const DesignEmailEditor = () => {
   //   }
   // };
 
-
-
   const newFieldDragged = (result: DropResult) => {
     const { destination, draggableId } = result;
     const isColumns = draggableId === 'Columns';
+    const isImageText = draggableId === 'ImageText';
     const control: IControl = {
       id: uuid(),
       type: draggableId,
@@ -71,6 +71,22 @@ const DesignEmailEditor = () => {
     if (isColumns) {
       control.controls = [];
     }
+    if (isImageText) {
+      control.controls = [];
+      control.controls[0] = {
+        id: uuid(),
+        type: "Image",
+        title: "",
+      };
+      control.controls[0].title = `${control.controls[0].id} element`;
+      control.controls[1] = {
+        id: uuid(),
+        type: "Text",
+        title: "",
+      };
+      control.controls[1].title = `${control.controls[1].id} element`;
+    }
+
     const newPageElements = cloneDeep(pageElements);
     setCurrentItem(control);
     // Set at desired index
@@ -83,15 +99,15 @@ const DesignEmailEditor = () => {
         ...newPageElements,
       }
     })
-    if (isColumns) {
+    if (isColumns || isImageText) {
       const newFieldListKey = uuid();
       setFieldsListKey(newFieldListKey);
     }
   };
 
   const newColFieldDragged = (result: DropResult) => {
-    console.log("newColFieldDragged result", result);
     const { draggableId, destination } = result;
+    console.log("newColFieldDragged result", result);
     const control: IControl = {
       id: uuid(),
       type: draggableId,
@@ -115,7 +131,6 @@ const DesignEmailEditor = () => {
   };
 
   const fieldToCol = (result: DropResult) => {
-    console.log("fielftocol result", result);
     const { draggableId, destination } = result;
     const newPageElements = cloneDeep(pageElements);
     let pageElementIds = newPageElements.elementIds;
@@ -207,10 +222,9 @@ const DesignEmailEditor = () => {
     })
   }
 
-  const doDragElementEnd = (result: DropResult) => {
+  const onDragElementEnd = (result: DropResult) => {
     const { destination, source, draggableId } = result;
     if (!destination) {
-      console.log("here!!!!!");
       return;
     }
     if (
@@ -218,15 +232,24 @@ const DesignEmailEditor = () => {
       || (destination.droppableId === 'elements-tab')
       || (destination.droppableId.includes('col') && (destination.droppableId.split(' ')[0] === draggableId))
       || (draggableId.includes('col') && destination.droppableId.includes('col'))
+      || (destination.droppableId.includes('imgTxt') && (destination.droppableId.split(' ')[0] === draggableId))
+      || (draggableId.includes('imgTxt') && destination.droppableId.includes('imgTxt'))
     ) {
       return;
     }
     // If element is dragged from Elements tab
     if (source.droppableId === 'elements-tab') {
+      console.log("source", source);
+      console.log("destination", destination); draggableId
+      console.log("draggableId", draggableId);
+
       if (destination.droppableId.includes('col') && (draggableId !== 'col')) {
         // New Row field from elements excluding the add row field
+        console.log("one");
         newColFieldDragged(result);
-      } else {
+      }
+      else {
+        console.log("three");
         newFieldDragged(result);
       }
     }
@@ -257,7 +280,6 @@ const DesignEmailEditor = () => {
   }
 
   const deleteField = (control: any) => {
-    console.log("deletefieldcontrol", control);
     const newPageElements = cloneDeep(pageElements);
     let pageElementIds = newPageElements.elementIds;
     delete newPageElements.elements[control.id];
@@ -275,8 +297,6 @@ const DesignEmailEditor = () => {
 
   const deleteColField = (colId: string, index: number) => {
     const newPageElements = cloneDeep(pageElements);
-    console.log("colId", colId);
-    console.log("newPageElements.elements[colId].", newPageElements.elements[colId]);
     newPageElements.elements[colId].controls.splice(index, 1);
 
     setPageElements(oldPageElements => {
@@ -289,7 +309,7 @@ const DesignEmailEditor = () => {
   return (
     <div className="design-editor">
       <DragDropContext
-        onDragEnd={(result: DropResult) => doDragElementEnd(result)}
+        onDragEnd={(result: DropResult) => onDragElementEnd(result)}
       >
         {/* <div style={{ maxWidth: "310px", borderRight: "8px solid lightgrey" }}> */}
         <BuildComponent currentItem={currentItem} />
@@ -308,7 +328,8 @@ const DesignEmailEditor = () => {
         />
         {/* </div> */}
       </DragDropContext>
-      <DesignEditorSettings />
+      {/* <DesignEditorSettings /> */}
+      <Settings data={currentItem} />
     </div>
   );
 }

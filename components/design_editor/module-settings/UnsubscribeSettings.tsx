@@ -22,7 +22,7 @@ function UnsubscribeSettings(props: any) {
   };
 
   return (
-    <Form >
+    <Form style={{ padding: "1em" }}>
       <Form.Label className="settings-primary-title">UNSUBSCRIBE SETTINGS</Form.Label>
       <Form.Group controlId="iconColor">
         <Form.Label className="settings-secondary-title">Font</Form.Label>

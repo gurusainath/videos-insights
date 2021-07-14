@@ -20,8 +20,7 @@ function ButtonSettings(props: any) {
   };
 
   return (
-    <Form >
-      <Form.Label className="settings-primary-title">BUTTON SETTINGS</Form.Label>
+    <Form style={{ padding: "1em" }}>
       <Form.Group controlId="btnText">
         <Form.Label className="settings-secondary-title">Button Text</Form.Label>
         <Form.Control

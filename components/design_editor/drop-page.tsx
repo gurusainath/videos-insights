@@ -1,14 +1,18 @@
-/* eslint-disable max-statements */
-/* eslint-disable react/jsx-props-no-spreading */
-/* eslint-disable max-lines-per-function */
 import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { Droppable } from 'react-beautiful-dnd';
 import FieldCard from '@components/design_editor/field-card';
 
-const DropPage = ({
-  pageElements, deleteField, deleteColField,
-}) => {
+interface Iprops {
+  pageElements: {
+    elements: object;
+    elementIds: Array;
+  };
+  deleteField: string;
+  deleteColField: string;
+}
+
+const DropPage = ({ pageElements, deleteField, deleteColField, deleteImgTxtField }) => {
   const elements = useMemo(() => {
     return pageElements.elementIds.map((elementId) => (
       pageElements.elements[elementId]
@@ -22,7 +26,7 @@ const DropPage = ({
         <span className="editor-subject">Subject:</span>
         <span style={{ color: "#C4C4C4" }}>Enter subject</span>
       </div>
-      <div className="subject-title">
+      <div className="subject-title" style={{ borderBottom: "1px solid #e9ecef" }}>
         <span className="editor-subject">Preheader:</span>
         <span style={{ color: "#C4C4C4" }}>Enter preheader</span>
       </div>
@@ -35,7 +39,6 @@ const DropPage = ({
             <div
               ref={provided.innerRef}
               {...provided.droppableProps}
-            //isDraggingOver={snapshot.isDraggingOver}
             >
               {
                 elements.length > 0 && elements.map((element, index) => (
@@ -46,6 +49,7 @@ const DropPage = ({
                     ctrl={element}
                     deleteField={deleteField}
                     deleteColField={deleteColField}
+                    deleteImgTxtField={deleteImgTxtField}
                   />
                 ))
               }
@@ -56,15 +60,6 @@ const DropPage = ({
       </div >
     </div>
   );
-};
-
-DropPage.propTypes = {
-  pageElements: PropTypes.shape({
-    elements: PropTypes.object,
-    elementIds: PropTypes.array,
-  }).isRequired,
-  deleteField: PropTypes.func.isRequired,
-  deleteColField: PropTypes.func.isRequired,
 };
 
 export default DropPage;

@@ -52,4 +52,4 @@ const DropDownComponent = (props: Iprops) => {
   )
 }
 
-export default withAuth(DropDownComponent);
+export default DropDownComponent;

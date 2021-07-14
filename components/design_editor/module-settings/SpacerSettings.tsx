@@ -22,8 +22,7 @@ function SpacerSettings(props: any) {
   };
 
   return (
-    <Form>
-      <Form.Label className="settings-primary-title">SPACER SETTINGS</Form.Label>
+    <Form style={{ padding: "1em" }}>
       <Form.Group controlId="height">
         <Form.Label className="settings-secondary-title">Height</Form.Label>
         <Form.Control type="text" placeholder={payload.height} value={payload.height}

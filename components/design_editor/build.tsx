@@ -10,6 +10,7 @@ import Settings from "@components/design_editor/settings";
 import { Pricetags } from "@styled-icons/evaicons-solid/Pricetags";
 import Tags from "@components/design_editor/tags";
 import { Build } from "@styled-icons/material/Build";
+import DesignEditorSettings from "@components/design_editor/DesignEditorSettings";
 
 interface IProps {
   currentItem: {
@@ -43,7 +44,8 @@ function BuildComponent(props: IProps) {
       title: "Settings",
       icon: <SettingsOutline size="20" />,
       key: "settings",
-      component: <Settings data={props.currentItem} />,
+      component: < DesignEditorSettings />,
+      // component: <Settings data={props.currentItem} />
     },
     {
       title: "Tags",

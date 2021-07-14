@@ -1,6 +1,7 @@
 import React from "react";
 // react-bootstrap
 import * as ModuleSettings from '@components/design_editor/module-settings';
+import { Row } from 'react-bootstrap';
 
 interface IProps {
   data: {
@@ -53,9 +54,13 @@ function Settings(props: IProps) {
   return (
     <div style={{
       display: "flex",
-      padding: "1em",
-      flexDirection: "column"
+      width: "25%",
+      flexDirection: "column",
+      borderLeft: "8px solid lightgrey",
     }}>
+      <Row className="design-email-properties">
+        <span>Property Settings</span>
+      </Row>
       {module && module.component}
     </div>
   );

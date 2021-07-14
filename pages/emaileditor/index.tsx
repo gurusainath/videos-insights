@@ -152,4 +152,5 @@ function EmailEditor() {
   );
 }
 
-export default withAuth(EmailEditor);
+export default EmailEditor;
+// export default withAuth(EmailEditor);

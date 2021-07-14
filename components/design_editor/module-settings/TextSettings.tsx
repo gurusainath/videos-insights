@@ -23,7 +23,7 @@ function TextSettings(props: any) {
 
   return (
     <div>
-      <Form>
+      <Form style={{ padding: "1em" }}>
         <Form.Label className="settings-primary-title">TEXT SETTINGS</Form.Label>
         <Form.Group controlId="iconColor">
           <Form.Label className="settings-secondary-title">Font</Form.Label>

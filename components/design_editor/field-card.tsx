@@ -18,8 +18,10 @@ interface IProps {
   elementType: String;
   deleteField: (ctrl: any) => void;
   deleteColField: (colId: string, index: number) => void;
+  deleteImgTxtField: (imgTxtId: string, index: number) => void;
   element: any;
-  colId: string;
+  colId?: string;
+  ImageTextId?: string;
 }
 
 function FieldCard(props: IProps) {
@@ -84,7 +86,7 @@ function FieldCard(props: IProps) {
         },
         {
           type: "IMAGETEXT",
-          component: <Modules.ImageTextModule />,
+          component: <Modules.ImageTextModule ctrl={props.ctrl} deleteImgTxtField={props.deleteImgTxtField} />,
         },
         {
           type: "SOCIAL",
@@ -99,6 +101,7 @@ function FieldCard(props: IProps) {
           component: <Modules.UnsubscribeModule />,
         },
       ];
+      console.log("props in field card", props);
       let module = modules.find((element) => element.type.toLowerCase() === props.ctrl.type.toLowerCase());
       //const FieldComponent = Fields[ctrl.type];
       console.log("module", module);
@@ -106,12 +109,12 @@ function FieldCard(props: IProps) {
         <Draggable
           draggableId={props.ctrl.id}
           index={props.index}
+          style={{ width: "max-content" }}
         >
           {(provided, snapshot) => (
             <div
               {...provided.draggableProps}
 
-              isDraggingOver={snapshot.isDraggingOver}
               ref={provided.innerRef}
 
             >

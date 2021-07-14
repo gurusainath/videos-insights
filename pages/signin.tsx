@@ -31,23 +31,29 @@ const Signin = () => {
     message: "",
   });
 
+  // const onFormSubmit = (e: any) => {
+  //   e.preventDefault();
+  //   UserSigninAuth(formDetails).then(res => {
+  //     console.log("response here", res);
+  //     redirectToAdmin(res);
+  //   }).catch(err => {
+  //     console.log("error here", err);
+  //     setAlertData({
+  //       variant: "danger",
+  //       show: true,
+  //       message: err.detail
+  //         ? err.detail == "wrong password"
+  //           ? "Incorrect Password."
+  //           : err.detail
+  //         : "The Email/Mobile Number you entered did not match our records. Please double-check and try again.",
+  //     });
+  //   })
+  // }
+
+  //without sign-in
   const onFormSubmit = (e: any) => {
     e.preventDefault();
-    UserSigninAuth(formDetails).then(res => {
-      console.log(res);
-      redirectToAdmin(res);
-    }).catch(err => {
-      console.log(err);
-      setAlertData({
-        variant: "danger",
-        show: true,
-        message: err.detail
-          ? err.detail == "wrong password"
-            ? "Incorrect Password."
-            : err.detail
-          : "The Email/Mobile Number you entered did not match our records. Please double-check and try again.",
-      });
-    })
+    router.push('/dashboard');
   }
 
   //redirecting to dashboard after log-in
@@ -96,4 +102,5 @@ const Signin = () => {
     </div>
   )
 }
-export default withoutAuth(Signin);
+// export default withoutAuth(Signin);
+export default Signin;

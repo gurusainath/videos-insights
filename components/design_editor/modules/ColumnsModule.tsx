@@ -20,7 +20,9 @@ function ColumnsModule(props: IProps) {
     <div>
       <Container>
         <Row style={{ height: "5em" }}>
-          <Col style={{ backgroundColor: "#9e9e9e21", marginRight: "1em" }}>
+          <Col style={{
+            backgroundColor: "#9e9e9e21", marginRight: "1em"
+          }}>
             <Droppable
               droppableId={`${props.ctrl.id} col`}
               direction="horizontal"
@@ -30,7 +32,6 @@ function ColumnsModule(props: IProps) {
                 <div
                   ref={provided.innerRef}
                   {...provided.droppableProps}
-                // isDraggingOver={snapshot.isDraggingOver}
                 >
                   {
                     props.ctrl.controls.length > 0 ?
@@ -85,7 +86,6 @@ function ColumnsModule(props: IProps) {
                 <div
                   ref={provided.innerRef}
                   {...provided.droppableProps}
-                // isDraggingOver={snapshot.isDraggingOver}
                 >
                   {
                     props.ctrl.controls.length > 1 ?

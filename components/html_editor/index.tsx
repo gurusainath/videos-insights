@@ -17,4 +17,5 @@ const HtmlEmailEditor = () => {
   )
 }
 
-export default withAuth(HtmlEmailEditor);
+// export default withAuth(HtmlEmailEditor);
+export default HtmlEmailEditor;

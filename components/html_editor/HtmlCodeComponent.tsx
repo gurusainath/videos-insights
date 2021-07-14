@@ -62,13 +62,10 @@ const HtmlCodeComponent = () => {
                   title={<div className="d-flex align-items-center">Upload</div>}
                 >
                   <div
-                    className="tab-item-container text-center mt-4 ml-4 mr-4 mb-1"
+                    className="tab-item-containermt-4 ml-4 mr-4 mb-1"
                     style={{
                       //padding: "233px 0px",
                       border: "1px dashed #e2e2e2",
-                      display: "flex",
-                      justifyContent: "space-evenly",
-                      alignItems: "center",
                     }}
                   >
                     <div>
@@ -77,13 +74,13 @@ const HtmlCodeComponent = () => {
                         buttonTitle="Click here to upload"
                       />
                     </div>
-                    <div style={{ borderLeft: "1px solid #e9ecef" }}>
+                    {/* <div style={{ borderLeft: "1px solid #e9ecef" }}>
                       <Row style={{ padding: "1em" }}>Image details</Row>
                       <Image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZskW69ZZ6CkDhj48BeExYCGg1cGQR6QWPWQ&usqp=CAU" thumbnail />
                       <Row style={{ padding: "1em" }}>File Name</Row>
                       <Row style={{ padding: "1em" }}>Dimensions</Row>
                       <Row style={{ padding: "1em" }}>Image URL</Row>
-                    </div>
+                    </div> */}
                   </div>
                 </Tab>
               </Tabs>
@@ -103,4 +100,5 @@ const HtmlCodeComponent = () => {
   )
 }
 
-export default withAuth(HtmlCodeComponent);
+// export default withAuth(HtmlCodeComponent);
+export default HtmlCodeComponent;
